@@ -145,7 +145,8 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
     admin_ssh_key {
         username       = "a248042"
-        public_key     = tls_private_key.example_ssh.public_key_openssh
+        #public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key     = file("./azure_key_rsa.pub")
     }
 
     boot_diagnostics {
@@ -156,3 +157,4 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         environment = "Terraform Demo"
     }
 }
+output "vm_public_ip_address" { value = azurerm_linux_virtual_machine.myterraformvm.public_ip_address}
