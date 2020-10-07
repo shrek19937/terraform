@@ -157,4 +157,5 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         environment = "Terraform Demo"
     }
 }
-output "vm_public_ip_address" { value = azurerm_linux_virtual_machine.myterraformvm.public_ip_address}
+output "vm_public_ip_address" { value = azurerm_linux_virtual_machine.myterraformvm.public_ip_address }
+# ssh -i azure_key_rsa a248042@vm_public_ip_address
